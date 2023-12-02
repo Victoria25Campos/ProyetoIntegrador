@@ -1,0 +1,12 @@
+<div class="d-flex flex-row">
+  <mat-sidenav-container fullscreen>
+  <app-nav-bar></app-nav-bar>
+  <div class="d-flex flex-column container-fluid">
+    <app-titulo class="container-fluid" [titulo]="titulo"></app-titulo>
+    <button [routerLink]="['/plato/create']" class="btn btn-primary" >
+    Nuevo Plato
+    </button>
+    <app-table [listaPlatos]="platos" class="p-5" ></app-table>
+  </div>
+</mat-sidenav-container>
+</div>

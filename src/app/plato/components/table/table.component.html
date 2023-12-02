@@ -1,0 +1,29 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover" style="width:100%" *ngIf="listaPlatos.length >0"  id="platoTable-table">
+  <thead>
+    <tr>
+      <th>CODIGO</th>
+      <th>IMAGEN</th>
+      <th>NOMBRE</th>
+      <th>PRECIO</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let plato of listaPlatos" class="banner-ingrediente-item">
+      <td>{{plato.codigo}}</td>
+      <td><img *ngIf="plato.imageUrl" [src]="plato.imageUrl" alt="Imagen"></td>
+      <td>{{plato.nombre}}</td>
+      <td>{{plato.precio}}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/plato/update/'+plato.codigo]">
+          <img src="https://i.imgur.com/LjBlgTB.png" alt="editar">
+        </button>
+        <!--
+        <button class="btn btn-danger mx-1">
+          <img src="https://i.imgur.com/V8YjCOQ.png" alt="editar" (click)="enviarIdEliminar($event)">
+        </button>-->
+      </td>
+    </tr>
+  </tbody>
+
+</table>

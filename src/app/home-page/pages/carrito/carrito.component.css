@@ -1,0 +1,24 @@
+#tabla-carrito{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin: 3rem;
+}
+#platoTable-table_wrapper{
+  margin: 3rem !important;
+  width: 70vw !important;
+}
+#platoTable-table{
+  width: 70vw !important;
+}
+td{
+  padding: 1rem;
+}
+button{
+  margin: 0.3rem;
+}
+.imagen-plato{
+  width: 10vw;
+}

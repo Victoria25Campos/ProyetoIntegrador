@@ -1,0 +1,31 @@
+<div class="d-flex flex-row">
+  <mat-sidenav-container fullscreen>
+  <app-nav-bar></app-nav-bar>
+  <div class="d-flex flex-column container-fluid">
+    <app-titulo class="container-fluid" [titulo]="titulo"></app-titulo>
+    <form autocomplete="off">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="plato.nombre">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="plato.descripcion">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Imagen</label>
+        <img *ngIf="plato.imageUrl" [src]="plato.imageUrl" alt="Imagen">
+        <input type="file" class="form-control" id="imagen" name="imagen"  (change)="onFileSelected($event)" #fileUpload>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Precio</label>
+        <input type="text" class="form-control" id="precio" name="precio" [(ngModel)]="plato.precio">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="enviarFormulario()">Guardar</button>
+      <button type="button" class="btn btn-danger" (click)="eliminarPlato()">Eliminar</button>
+    </form>
+
+  </div>
+</mat-sidenav-container>
+</div>
+

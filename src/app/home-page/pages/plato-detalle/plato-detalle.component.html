@@ -1,0 +1,38 @@
+<mat-sidenav-container fullscreen>
+  <app-nav-bar></app-nav-bar>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-row m-4 justify-content-center">
+      <div id="producto-img" class="d-flex flex-column justify-content-center align-items-center m-2">
+        <img src="{{plato.imageUrl}}" id="producto-img-main">
+      </div>
+      <div id="producto-descripcion" class="m-2">
+        <div id="producto-titulo" class="d-flex flex-row justify-content-center">
+          <h3>{{plato.nombre}}</h3>
+        </div>
+
+        <div id="producto-indicaciones" class="d-flex flex-column">
+          <h4>Indicaciones</h4>
+          <div id="producto-indicaciones-descripcion" class="d-flex flex-column align-items-center">
+            <p>{{plato.descripcion}}</p>
+          </div>
+        </div>
+
+        <div id="producto-periodo-retiro-desc" class="d-flex flex-column">
+          <h4>Periodo de retiro</h4>
+          <div id="producto-periodo-retiro-desc-descripcion" class="d-flex flex-column align-items-center">
+            <p>{{plato.precio}}</p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div id="botones">
+      <button mat-raised-button color="primary" class="m-2" [routerLink]="['/home-page/plato']">Volver</button>
+      <button mat-raised-button color="primary" class="m-2" [routerLink]="['/home-page/carrito']">Agregar al carrito</button>
+    </div>
+  </div>
+
+</mat-sidenav-container>
+

@@ -1,0 +1,48 @@
+<app-nav-bar></app-nav-bar>
+<div id="tabla-carrito">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover" *ngIf="listaDetalleCompra.length >0"  id="platoTable-table">
+    <thead>
+      <tr>
+        <th>CODIGO</th>
+        <th>IMAGEN</th>
+        <th>NOMBRE</th>
+        <th>PRECIO</th>
+        <th>CANTIDAD</th>
+        <th>TOTAL</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detalle of listaDetalleCompra" class="banner-ingrediente-item">
+        <td>{{detalle.id}}</td>
+        <td><img *ngIf="detalle.plato.imageUrl" [src]="detalle.plato.imageUrl" alt="Imagen" class="imagen-plato"></td>
+        <td>{{detalle.plato.nombre}}</td>
+        <td>{{detalle.precio}}</td>
+        <td>{{detalle.cantidad}}</td>
+        <td>{{detalle.total}}</td>
+        <td>
+          <button mat-raised-button color="accent" (click)="disminuirCantidad(detalle)">-</button>
+          <button mat-raised-button color="primary" (click)="aumentarCantidad(detalle)">+</button>
+          <!--
+          <button class="btn btn-danger mx-1">
+            <img src="https://i.imgur.com/V8YjCOQ.png" alt="editar" (click)="enviarIdEliminar($event)">
+          </button>-->
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>TOTAL PAGAR</td>
+        <td>{{compra.total}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+  <div>
+    <button mat-raised-button color="accent" (click)="comprar()">COMPRAR</button>
+  </div>
+
+</div>

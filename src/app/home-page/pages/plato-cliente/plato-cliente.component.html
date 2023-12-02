@@ -1,0 +1,66 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div id="buscador" class="m-2">
+    <h3 >Realiza tu búsqueda aqui:</h3>
+    <div id="buscador-content" class="d-flex flex-row align-items-center justify-content-center ">
+      <div id="buscar-nombre" class="d-flex flex-row  align-items-center">
+        <div class="m-2">
+          <p>Buscar por nombre</p>
+        </div>
+        <mat-form-field class="example-form-field">
+          <mat-label>Nombre producto</mat-label>
+          <input matInput type="text" [(ngModel)]="nombre">
+          <button *ngIf="nombre" matSuffix mat-icon-button aria-label="Clear" (click)="nombre=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <!--buscar por categoria
+      <div id="buscar-tipo" class="d-flex flex-row  align-items-center">
+        <div class="m-2">
+          <p>Buscar por tipo</p>
+        </div>
+
+          <mat-form-field class="m-5">
+            <mat-label>Pais</mat-label>
+            <mat-select  matNativeControl name="tipoProducto" [(ngModel)]="selectedTipoProducto" >
+              <mat-option *ngFor="let item of listTipoProducto"  value="{{item.id}}">{{item.descripcion}}</mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
+
+      </div>-->
+      <button mat-raised-button color="accent" (click)="filtrar()" >Buscar</button>
+
+    </div>
+
+
+  </div>
+
+  <!--Lista de productos-->
+  <div id="lista-productos" class="d-flex flex-wrap justify-content-center align-items-center">
+    <mat-card class="example-card m-3" *ngFor="let item of listaPlatos | paginate: { itemsPerPage: 8, currentPage: pages }">
+      <mat-card-header>
+        <mat-card-title>{{item.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{item.descripcion}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="d-flex flex-row justify-content-center">
+        <img class="content-img" *ngIf="item.imageUrl" mat-card-image [src]="item.imageUrl" alt="Photo of {{item.nombre}}">
+      </mat-card-content>
+      <mat-card-actions class="d-flex flex-row justify-content-around">
+        <a mat-raised-button color="accent" [routerLink]="['/home-page/plato-detalle', item.codigo]">Ver más</a>
+      <a mat-raised-button color="accent" (click)="agregarAlCarrito(item)">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shoppping_cart"></mat-icon>
+      </a>
+      </mat-card-actions>
+    </mat-card>
+
+
+  </div>
+  <div id="paginacion" class="d-flex flex-row justify-content-center align-items-center mt-3"  >
+      <pagination-controls (pageChange)="pages = $event"  class="my-pagination"></pagination-controls>
+  </div>
+</div>
